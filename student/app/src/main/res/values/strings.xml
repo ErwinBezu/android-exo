@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Carte Étudiant</string>
+
+    <!-- Titres -->
+    <string name="title_main">Générateur de Carte Étudiant</string>
+    <string name="title_personal_info">Informations personnelles</string>
+    <string name="title_preview">Prévisualisation de la carte</string>
+    <string name="title_customization">Personnalisation</string>
+
+    <!-- Champs de saisie -->
+    <string name="hint_full_name">Nom complet</string>
+    <string name="hint_student_id">Numéro étudiant (8 chiffres)</string>
+
+    <!-- Filières -->
+    <string name="filiere_informatique">Informatique</string>
+    <string name="filiere_mathematiques">Mathématiques</string>
+    <string name="filiere_physique">Physique</string>
+    <string name="filiere_chimie">Chimie</string>
+
+    <!-- Niveaux -->
+    <string name="niveau_l1">L1</string>
+    <string name="niveau_l2">L2</string>
+    <string name="niveau_l3">L3</string>
+    <string name="niveau_m1">M1</string>
+    <string name="niveau_m2">M2</string>
+
+    <!-- Options -->
+    <string name="option_boursier">Étudiant boursier</string>
+    <string name="option_bibliotheque">Accès bibliothèque</string>
+    <string name="option_show_extra_info">Afficher les informations complémentaires</string>
+
+    <!-- Couleurs -->
+    <string name="color_blue">Bleu</string>
+    <string name="color_green">Vert</string>
+    <string name="color_red">Rouge</string>
+
+    <!-- Boutons -->
+    <string name="btn_preview">Aperçu</string>
+    <string name="btn_generate">Générer</string>
+    <string name="btn_reset">Réinitialiser</string>
+
+    <string name="error_name_required">Le nom doit contenir au moins 2 mots</string>
+    <string name="error_student_id_format">Le numéro doit contenir exactement 8 chiffres</string>
+
+    <string name="toast_preview_updated">Prévisualisation mise à jour</string>
+    <string name="toast_fix_errors">Veuillez corriger les erreurs</string>
+    <string name="toast_card_generated">Carte générée avec succès !</string>
+    <string name="toast_form_reset">Formulaire réinitialisé</string>
+
+    <!-- Textes de prévisualisation par défaut -->
+    <string name="preview_default_name">Nom de l\'étudiant</string>
+    <string name="preview_default_student_id">N° Étudiant</string>
+    <string name="preview_default_filiere">Filière</string>
+    <string name="preview_default_niveau">Niveau</string>
+    <string name="preview_boursier_yes">Boursier</string>
+    <string name="preview_boursier_no">Non boursier</string>
+    <string name="preview_library_access">Accès biblio:</string>
+    <string name="yes">OUI</string>
+    <string name="no">NON</string>
+
+    <!-- Labels -->
+    <string name="label_filiere">Filière</string>
+    <string name="label_niveau">Niveau d\'études</string>
+    <string name="label_card_color">Couleur de la carte</string>
+    <string name="label_text_size">Taille du texte</string>
+
+    <string name="desc_university_logo">Logo université</string>
+    <string name="desc_profile_photo">Photo de profil</string>
+</resources>

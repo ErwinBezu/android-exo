@@ -1,0 +1,370 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <!-- En-tête -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_marginBottom="24dp">
+
+            <ImageView
+                android:id="@+id/imageViewIcon"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:src="@android:drawable/ic_menu_manage"
+                android:layout_marginEnd="12dp" />
+
+            <TextView
+                android:id="@+id/textViewTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Note de Frais"
+                android:textSize="24sp"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+
+        <!-- Informations employé -->
+        <TextView
+            android:id="@+id/textViewInfoEmploye"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Informations employé"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="12dp" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/textInputLayoutNom"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="12dp">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/editTextNomEmploye"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Nom de l'employé (Prénom Nom)" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/textInputLayoutNumero"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="12dp">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/editTextNumeroEmploye"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Numéro d'employé (5 chiffres)"
+                android:inputType="number"
+                android:maxLength="5" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- Département -->
+        <TextView
+            android:id="@+id/textViewDepartement"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Département :"
+            android:textSize="16sp"
+            android:layout_marginBottom="8dp" />
+
+        <RadioGroup
+            android:id="@+id/radioGroupDepartement"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="16dp">
+
+            <RadioButton
+                android:id="@+id/radioButtonCommercial"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Commercial"
+                android:layout_weight="1" />
+
+            <RadioButton
+                android:id="@+id/radioButtonMarketing"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Marketing"
+                android:layout_weight="1" />
+
+            <RadioButton
+                android:id="@+id/radioButtonIT"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="IT"
+                android:layout_weight="1" />
+
+            <RadioButton
+                android:id="@+id/radioButtonRH"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="RH"
+                android:layout_weight="1" />
+
+        </RadioGroup>
+
+        <!-- Type de frais -->
+        <TextView
+            android:id="@+id/textViewTypeFrais"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Type de frais :"
+            android:textSize="16sp"
+            android:layout_marginBottom="8dp" />
+
+        <Spinner
+            android:id="@+id/spinnerTypeFrais"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp" />
+
+        <!-- Détails du frais -->
+        <TextView
+            android:id="@+id/textViewDetailsFrais"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Détails du frais"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="12dp" />
+
+        <CheckBox
+            android:id="@+id/checkBoxFraisRecurrent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Frais récurrent"
+            android:layout_marginBottom="12dp" />
+
+        <LinearLayout
+            android:id="@+id/layoutTVA"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_marginBottom="16dp">
+
+            <TextView
+                android:id="@+id/textViewTVA"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Avec TVA récupérable :"
+                android:layout_marginEnd="12dp" />
+
+            <Switch
+                android:id="@+id/switchTVA"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+        </LinearLayout>
+
+        <!-- Montant -->
+        <TextView
+            android:id="@+id/textViewMontant"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Montant : 10€"
+            android:textSize="16sp"
+            android:layout_marginBottom="8dp" />
+
+        <SeekBar
+            android:id="@+id/seekBarMontant"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:max="490"
+            android:progress="0"
+            android:layout_marginBottom="16dp" />
+
+        <!-- Options avancées -->
+        <TextView
+            android:id="@+id/textViewOptionsAvancees"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Options avancées"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="12dp" />
+
+        <TextView
+            android:id="@+id/textViewUrgence"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Urgence de remboursement :"
+            android:textSize="16sp"
+            android:layout_marginBottom="8dp" />
+
+        <RadioGroup
+            android:id="@+id/radioGroupUrgence"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="16dp">
+
+            <RadioButton
+                android:id="@+id/radioButtonNormal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Normal"
+                android:checked="true"
+                android:layout_weight="1" />
+
+            <RadioButton
+                android:id="@+id/radioButtonUrgent"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Urgent"
+                android:layout_weight="1" />
+
+            <RadioButton
+                android:id="@+id/radioButtonTresUrgent"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Très urgent"
+                android:layout_weight="1" />
+
+        </RadioGroup>
+
+        <CheckBox
+            android:id="@+id/checkBoxJustificatif"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Justificatif fourni"
+            android:layout_marginBottom="12dp" />
+
+        <CheckBox
+            android:id="@+id/checkBoxValidationManager"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Validation manager requise"
+            android:layout_marginBottom="24dp" />
+
+        <!-- Prévisualisation -->
+        <TextView
+            android:id="@+id/textViewPrevisualisation"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Prévisualisation"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="12dp" />
+
+        <LinearLayout
+            android:id="@+id/layoutTicket"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@android:color/white"
+            android:padding="16dp"
+            android:elevation="4dp"
+            android:layout_marginBottom="16dp">
+
+            <TextView
+                android:id="@+id/textViewTicketEmploye"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Employé : -"
+                android:textSize="14sp"
+                android:layout_marginBottom="4dp" />
+
+            <TextView
+                android:id="@+id/textViewTicketDepartement"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Département : -"
+                android:textSize="14sp"
+                android:layout_marginBottom="4dp" />
+
+            <TextView
+                android:id="@+id/textViewTicketTypeFrais"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Type : -"
+                android:textSize="14sp"
+                android:layout_marginBottom="4dp" />
+
+            <TextView
+                android:id="@+id/textViewTicketMontantHT"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Montant HT : 10.00€"
+                android:textSize="14sp"
+                android:layout_marginBottom="4dp" />
+
+            <TextView
+                android:id="@+id/textViewTicketMontantTTC"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Montant TTC : 10.00€"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+
+        <!-- Pourcentage budget -->
+        <TextView
+            android:id="@+id/textViewPourcentageBudget"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Pourcentage du budget mensuel utilisé : 1%"
+            android:textSize="14sp"
+            android:layout_marginBottom="8dp" />
+
+        <ProgressBar
+            android:id="@+id/progressBarBudget"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:max="100"
+            android:progress="1"
+            android:layout_marginBottom="24dp" />
+
+        <!-- Boutons d'actions -->
+        <LinearLayout
+            android:id="@+id/layoutButtons"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center">
+
+            <Button
+                android:id="@+id/buttonCalculer"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Calculer total"
+                android:layout_marginEnd="8dp" />
+
+            <Button
+                android:id="@+id/buttonSoumettre"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Soumettre"
+                android:layout_marginEnd="8dp" />
+
+            <Button
+                android:id="@+id/buttonReset"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Reset" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</ScrollView>
