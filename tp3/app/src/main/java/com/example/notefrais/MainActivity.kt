@@ -36,7 +36,7 @@ class MainActivity : AppCompatActivity() {
                 val action = data.getStringExtra("action")
 
                 if (action == "modifier") {
-                    chargerDonneesModification(data)
+                    loadModificationData(data)
                 } else {
                     val statut = data.getStringExtra("statut_validation")
                     val noteId = data.getIntExtra("note_id", -1)
@@ -169,7 +169,7 @@ class MainActivity : AppCompatActivity() {
 
         binding.btnSoumettre.setOnClickListener {
             if (validateForm()) {
-                ouvrirValidationActivity()
+                openValidationActivity()
             } else {
                 Toast.makeText(this, "Veuillez remplir tous les champs obligatoires", Toast.LENGTH_SHORT).show()
             }
@@ -180,11 +180,10 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    private fun ouvrirValidationActivity() {
+    private fun openValidationActivity() {
         val intent = Intent(this, ValidationActivity::class.java)
 
         if (isEditingExistingNote && editingNoteId != -1) {
-            // Note existante en modification
             intent.putExtra("note_id", editingNoteId)
         } else {
             intent.putExtra("nom_employe", noteFrais.nomEmploye)
@@ -201,7 +200,7 @@ class MainActivity : AppCompatActivity() {
         validationLauncher.launch(intent)
     }
 
-    private fun chargerDonneesModification(data: Intent) {
+    private fun loadModificationData(data: Intent) {
         isEditingExistingNote = true
         editingNoteId = data.getIntExtra("note_id", -1)
 
@@ -215,17 +214,15 @@ class MainActivity : AppCompatActivity() {
         noteFrais.justificatifFourni = data.getBooleanExtra("justificatif_fourni", false)
         noteFrais.urgence = data.getStringExtra("urgence") ?: "Normal"
 
-        remplirFormulaire()
+        fillForm()
 
         Toast.makeText(this, "Mode modification activé", Toast.LENGTH_SHORT).show()
     }
 
-    private fun remplirFormulaire() {
-        // Remplir les champs texte
+    private fun fillForm() {
         binding.editTextNom.setText(noteFrais.nomEmploye)
         binding.editTextNumero.setText(noteFrais.numeroEmploye)
 
-        // Sélectionner le département
         when (noteFrais.departement) {
             "Commercial" -> binding.radioBtnCommercial.isChecked = true
             "Marketing" -> binding.radioBtnMarketing.isChecked = true
@@ -233,29 +230,24 @@ class MainActivity : AppCompatActivity() {
             "RH" -> binding.radioBtnRH.isChecked = true
         }
 
-        // Sélectionner le type de frais
         val typeIndex = typesFrais.indexOf(noteFrais.typeFrais)
         if (typeIndex != -1) {
             binding.spinnerTypeFrais.setSelection(typeIndex)
         }
 
-        // Définir le montant
         binding.seekBarMontant.progress = (noteFrais.montant - 10.0).toInt()
         binding.textViewMontant.text = "Montant : ${noteFrais.montant.toInt()}€"
 
-        // Définir les options
         binding.checkBoxRecurrent.isChecked = noteFrais.fraisRecurrent
         binding.switchTVA.isChecked = noteFrais.avecTVA
         binding.checkBoxJustificatif.isChecked = noteFrais.justificatifFourni
 
-        // Sélectionner l'urgence
         when (noteFrais.urgence) {
             "Normal" -> binding.radioBtnNormal.isChecked = true
             "Urgent" -> binding.radioBtnUrgent.isChecked = true
             "Très urgent" -> binding.radioBtnTresUrgent.isChecked = true
         }
 
-        // Mettre à jour la prévisualisation
         updateNote()
     }
 

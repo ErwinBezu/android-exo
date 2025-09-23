@@ -27,14 +27,9 @@ class ValidationActivity : AppCompatActivity() {
         binding = ActivityValidationBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        // Récupérer les données de l'Intent
         recupererDonneesIntent()
-
-        // Configurer l'interface
         setupViews()
         setupListeners()
-
-        // Afficher le récapitulatif
         afficherRecapitulatif()
     }
 
@@ -42,10 +37,8 @@ class ValidationActivity : AppCompatActivity() {
         noteId = intent.getIntExtra("note_id", -1)
 
         if (noteId != -1) {
-            // Note existante
             noteFrais = NoteFraisManager.getNote(noteId) ?: NoteFrais()
         } else {
-            // Nouvelle note créée depuis MainActivity
             noteFrais = NoteFrais().apply {
                 nomEmploye = intent.getStringExtra("nom_employe") ?: ""
                 numeroEmploye = intent.getStringExtra("numero_employe") ?: ""
@@ -61,31 +54,26 @@ class ValidationActivity : AppCompatActivity() {
     }
 
     private fun setupViews() {
-        // Configuration du Spinner délai de traitement
         val adapter = ArrayAdapter(this, android.R.layout.simple_spinner_item, delaisTraitement)
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
         binding.spinnerDelai.adapter = adapter
 
-        // Sélectionner le délai actuel
         val delaiIndex = delaisTraitement.indexOf(noteFrais.delaiTraitement)
         if (delaiIndex != -1) {
             binding.spinnerDelai.setSelection(delaiIndex)
         }
 
-        // Configuration du statut initial
         when (noteFrais.statut) {
             "Approuvé" -> binding.radioBtnApprouve.isChecked = true
             "Refusé" -> binding.radioBtnRefuse.isChecked = true
             else -> binding.radioBtnEnAttente.isChecked = true
         }
 
-        // Configuration des autres champs
         binding.editTextCommentaires.setText(noteFrais.commentairesManager)
         binding.checkBoxPrioritaire.isChecked = noteFrais.remboursementPrioritaire
     }
 
     private fun setupListeners() {
-        // Listener pour le Spinner délai
         binding.spinnerDelai.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
             override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
                 noteFrais.delaiTraitement = delaisTraitement[position]
@@ -93,7 +81,6 @@ class ValidationActivity : AppCompatActivity() {
             override fun onNothingSelected(parent: AdapterView<*>?) {}
         }
 
-        // Listener pour les RadioButtons statut
         binding.radioGroupStatut.setOnCheckedChangeListener { _, checkedId ->
             noteFrais.statut = when (checkedId) {
                 R.id.radioBtnApprouve -> "Approuvé"
@@ -103,48 +90,39 @@ class ValidationActivity : AppCompatActivity() {
             }
         }
 
-        // Listener pour le CheckBox prioritaire
         binding.checkBoxPrioritaire.setOnCheckedChangeListener { _, isChecked ->
             noteFrais.remboursementPrioritaire = isChecked
         }
 
-        // Bouton Valider
         binding.btnValider.setOnClickListener {
             validerNote()
         }
 
-        // Bouton Modifier
         binding.btnModifier.setOnClickListener {
             modifierNote()
         }
 
-        // Bouton Annuler
         binding.btnAnnuler.setOnClickListener {
             annulerValidation()
         }
     }
 
     private fun afficherRecapitulatif() {
-        // Informations employé
         binding.textViewNomRecap.text = noteFrais.nomEmploye.ifEmpty { "Nom employé" }
         binding.textViewNumeroRecap.text = "N° ${noteFrais.numeroEmploye.ifEmpty { "00000" }}"
         binding.textViewDepartementRecap.text = noteFrais.departement.ifEmpty { "Département non sélectionné" }
 
-        // Détails de la note
         binding.textViewTypeFraisRecap.text = noteFrais.typeFrais
         binding.textViewMontantHTRecap.text = "Montant HT: ${String.format("%.2f", noteFrais.montant)}€"
         binding.textViewMontantTTCRecap.text = "Montant TTC: ${String.format("%.2f", noteFrais.calculerMontantTTC())}€"
         binding.textViewUrgenceRecap.text = "Urgence: ${noteFrais.urgence}"
 
-        // Options
         binding.textViewRecurrentRecap.text = if (noteFrais.fraisRecurrent) "Frais récurrent: Oui" else "Frais récurrent: Non"
         binding.textViewTVARecap.text = if (noteFrais.avecTVA) "TVA récupérable: Oui" else "TVA récupérable: Non"
         binding.textViewJustificatifRecap.text = if (noteFrais.justificatifFourni) "Justificatif fourni: Oui" else "Justificatif fourni: Non"
 
-        // Couleur selon l'urgence
         binding.recapContainer.setBackgroundColor(Color.parseColor(noteFrais.getCouleurUrgence()))
 
-        // Date de création si disponible
         if (noteFrais.dateCreation.isNotEmpty()) {
             binding.textViewDateCreation.text = "Créé le: ${noteFrais.dateCreation}"
             binding.textViewDateCreation.visibility = View.VISIBLE
@@ -154,25 +132,19 @@ class ValidationActivity : AppCompatActivity() {
     }
 
     private fun validerNote() {
-        // Récupérer les commentaires
         noteFrais.commentairesManager = binding.editTextCommentaires.text.toString()
 
-        // Définir la date de validation
         if (noteFrais.statut != "En attente") {
             val sdf = SimpleDateFormat("dd/MM/yyyy", Locale.getDefault())
             noteFrais.dateValidation = sdf.format(Date())
         }
 
-        // Sauvegarder ou mettre à jour la note
         if (noteId == -1) {
-            // Nouvelle note
             noteId = NoteFraisManager.ajouterNote(noteFrais)
         } else {
-            // Note existante
             NoteFraisManager.updateNote(noteFrais)
         }
 
-        // Retourner le résultat
         val resultIntent = Intent()
         resultIntent.putExtra("note_id", noteId)
         resultIntent.putExtra("statut_validation", noteFrais.statut)
@@ -185,7 +157,6 @@ class ValidationActivity : AppCompatActivity() {
     }
 
     private fun modifierNote() {
-        // Retourner vers MainActivity avec les données pour modification
         val resultIntent = Intent()
         resultIntent.putExtra("action", "modifier")
         resultIntent.putExtra("note_id", noteId)
