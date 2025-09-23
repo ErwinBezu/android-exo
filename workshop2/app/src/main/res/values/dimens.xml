@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Marges et padding -->
+    <dimen name="margin_small">8dp</dimen>
+    <dimen name="margin_medium">16dp</dimen>
+    <dimen name="margin_large">24dp</dimen>
+    <dimen name="margin_xlarge">32dp</dimen>
+
+    <!-- Tailles d'éléments -->
+    <dimen name="header_height">56dp</dimen>
+    <dimen name="button_height">48dp</dimen>
+    <dimen name="edittext_height">48dp</dimen>
+    <dimen name="avatar_size">48dp</dimen>
+    <dimen name="delete_button_size">36dp</dimen>
+
+    <!-- Tailles de texte -->
+    <dimen name="text_size_title">20sp</dimen>
+    <dimen name="text_size_large">18sp</dimen>
+    <dimen name="text_size_medium">16sp</dimen>
+    <dimen name="text_size_normal">14sp</dimen>
+    <dimen name="text_size_small">12sp</dimen>
+
+    <!-- Rayons -->
+    <dimen name="corner_radius">4dp</dimen>
+    <dimen name="stroke_width">1dp</dimen>
+</resources>

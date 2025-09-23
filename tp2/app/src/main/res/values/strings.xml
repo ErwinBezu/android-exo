@@ -1,7 +1,6 @@
 <resources>
     <string name="app_name">Note de Frais</string>
 
-    <!-- Textes de l'interface -->
     <string name="titre_app">Note de Frais</string>
     <string name="info_employe">Informations employé</string>
     <string name="nom_employe_hint">Nom de l\'employé (Prénom Nom)</string>
@@ -9,13 +8,11 @@
     <string name="departement_label">Département :</string>
     <string name="type_frais_label">Type de frais :</string>
 
-    <!-- Départements -->
     <string name="commercial">Commercial</string>
     <string name="marketing">Marketing</string>
     <string name="it">IT</string>
     <string name="rh">RH</string>
 
-    <!-- Types de frais -->
     <string-array name="types_frais">
         <item>Transport</item>
         <item>Hébergement</item>
@@ -24,13 +21,11 @@
         <item>Formation</item>
     </string-array>
 
-    <!-- Détails -->
     <string name="details_frais">Détails du frais</string>
     <string name="frais_recurrent">Frais récurrent</string>
     <string name="avec_tva">Avec TVA récupérable :</string>
     <string name="montant_label">Montant : %d€</string>
 
-    <!-- Options avancées -->
     <string name="options_avancees">Options avancées</string>
     <string name="urgence_label">Urgence de remboursement :</string>
     <string name="normal">Normal</string>
@@ -39,7 +34,6 @@
     <string name="justificatif_fourni">Justificatif fourni</string>
     <string name="validation_manager">Validation manager requise</string>
 
-    <!-- Prévisualisation -->
     <string name="previsualisation">Prévisualisation</string>
     <string name="employe_ticket">Employé : %s</string>
     <string name="departement_ticket">Département : %s</string>
@@ -48,12 +42,10 @@
     <string name="montant_ttc">Montant TTC : %.2f€</string>
     <string name="pourcentage_budget">Pourcentage du budget mensuel utilisé : %d%%</string>
 
-    <!-- Boutons -->
     <string name="btn_calculer">Calculer total</string>
     <string name="btn_soumettre">Soumettre</string>
     <string name="btn_reset">Reset</string>
 
-    <!-- Messages -->
     <string name="nom_invalide">Nom invalide (Prénom + Nom requis)</string>
     <string name="numero_invalide">Numéro invalide (5 chiffres requis)</string>
     <string name="frais_recurrent_notif">Frais récurrent activé - Notification spéciale</string>

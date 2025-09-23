@@ -1,0 +1,51 @@
+<resources>
+    <string name="app_name">Contact App</string>
+    <string name="title_contacts">Mes Contacts</string>
+    <string name="title_add_contact">Nouveau Contact</string>
+    <string name="title_edit_contact">Modifier Contact</string>
+
+    <!-- Formulaire -->
+    <string name="hint_first_name">Prénom *</string>
+    <string name="hint_last_name">Nom *</string>
+    <string name="hint_email">Email *</string>
+    <string name="hint_phone">Téléphone *</string>
+    <string name="hint_company">Entreprise (optionnel)</string>
+
+    <!-- Boutons -->
+    <string name="btn_save">Sauvegarder</string>
+    <string name="btn_cancel">Annuler</string>
+    <string name="btn_delete">Supprimer</string>
+    <string name="btn_clear">Effacer</string>
+    <string name="btn_add">+ Ajouter</string>
+
+    <!-- Messages -->
+    <string name="msg_contact_added">Contact ajouté avec succès</string>
+    <string name="msg_contact_updated">Contact modifié avec succès</string>
+    <string name="msg_contact_deleted">Contact supprimé</string>
+    <string name="msg_form_cleared">Formulaire effacé</string>
+
+    <!-- Erreurs -->
+    <string name="error_first_name_required">Le prénom est obligatoire</string>
+    <string name="error_last_name_required">Le nom est obligatoire</string>
+    <string name="error_email_required">L\'email est obligatoire</string>
+    <string name="error_email_invalid">Format d\'email invalide</string>
+    <string name="error_phone_required">Le téléphone est obligatoire</string>
+    <string name="error_phone_too_short">Numéro de téléphone trop court</string>
+
+    <!-- Dialogues -->
+    <string name="dialog_delete_title">Supprimer le contact</string>
+    <string name="dialog_delete_message">Voulez-vous vraiment supprimer %s ?</string>
+    <string name="dialog_clear_title">Effacer le formulaire</string>
+    <string name="dialog_clear_message">Voulez-vous vraiment effacer tous les champs ?</string>
+    <string name="dialog_unsaved_title">Modifications non sauvegardées</string>
+    <string name="dialog_unsaved_message">Voulez-vous quitter sans sauvegarder ?</string>
+
+    <!-- État vide -->
+    <string name="empty_state_title">Aucun contact</string>
+    <string name="empty_state_subtitle">Appuyez sur \'Ajouter\' pour créer votre premier contact</string>
+
+    <!-- Actions -->
+    <string name="action_quit">Quitter</string>
+    <string name="action_stay">Rester</string>
+    <string name="action_ok">OK</string>
+</resources>

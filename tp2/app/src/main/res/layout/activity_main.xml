@@ -75,7 +75,6 @@
 
         </com.google.android.material.textfield.TextInputLayout>
 
-        <!-- Département -->
         <TextView
             android:id="@+id/textViewDepartement"
             android:layout_width="wrap_content"
@@ -121,7 +120,6 @@
 
         </RadioGroup>
 
-        <!-- Type de frais -->
         <TextView
             android:id="@+id/textViewTypeFrais"
             android:layout_width="wrap_content"
@@ -136,7 +134,6 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="16dp" />
 
-        <!-- Détails du frais -->
         <TextView
             android:id="@+id/textViewDetailsFrais"
             android:layout_width="wrap_content"
@@ -175,7 +172,6 @@
 
         </LinearLayout>
 
-        <!-- Montant -->
         <TextView
             android:id="@+id/textViewMontant"
             android:layout_width="wrap_content"
@@ -255,7 +251,6 @@
             android:text="Validation manager requise"
             android:layout_marginBottom="24dp" />
 
-        <!-- Prévisualisation -->
         <TextView
             android:id="@+id/textViewPrevisualisation"
             android:layout_width="wrap_content"
@@ -317,7 +312,6 @@
 
         </LinearLayout>
 
-        <!-- Pourcentage budget -->
         <TextView
             android:id="@+id/textViewPourcentageBudget"
             android:layout_width="wrap_content"

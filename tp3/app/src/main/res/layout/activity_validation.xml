@@ -1,0 +1,281 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp"
+    tools:context=".ValidationActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <!-- En-tête -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Validation de la Note de Frais"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            android:textColor="@color/primary_color"
+            android:gravity="center"
+            android:layout_marginBottom="24dp" />
+
+        <!-- Récapitulatif de la note -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Récapitulatif de la demande"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="16dp"
+            android:textColor="@color/section_title" />
+
+        <LinearLayout
+            android:id="@+id/recapContainer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp"
+            android:background="@drawable/note_background"
+            android:layout_marginBottom="24dp">
+
+            <!-- Informations employé -->
+            <TextView
+                android:id="@+id/textViewNomRecap"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Nom employé"
+                android:textColor="@android:color/white"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:layout_marginBottom="4dp" />
+
+            <TextView
+                android:id="@+id/textViewNumeroRecap"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="N° 00000"
+                android:textColor="@android:color/white"
+                android:textSize="14sp"
+                android:layout_marginBottom="4dp" />
+
+            <TextView
+                android:id="@+id/textViewDepartementRecap"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Département"
+                android:textColor="@android:color/white"
+                android:textSize="14sp"
+                android:layout_marginBottom="8dp" />
+
+            <!-- Détails de la note -->
+            <TextView
+                android:id="@+id/textViewTypeFraisRecap"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Type de frais"
+                android:textColor="@android:color/white"
+                android:textSize="14sp"
+                android:layout_marginBottom="4dp" />
+
+            <TextView
+                android:id="@+id/textViewMontantHTRecap"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Montant HT: 0.00€"
+                android:textColor="@android:color/white"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:layout_marginBottom="4dp" />
+
+            <TextView
+                android:id="@+id/textViewMontantTTCRecap"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Montant TTC: 0.00€"
+                android:textColor="@android:color/white"
+                android:textSize="14sp"
+                android:layout_marginBottom="4dp" />
+
+            <TextView
+                android:id="@+id/textViewUrgenceRecap"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Urgence: Normal"
+                android:textColor="@android:color/white"
+                android:textSize="14sp"
+                android:layout_marginBottom="8dp" />
+
+            <!-- Options -->
+            <TextView
+                android:id="@+id/textViewRecurrentRecap"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Frais récurrent: Non"
+                android:textColor="@android:color/white"
+                android:textSize="12sp"
+                android:layout_marginBottom="2dp" />
+
+            <TextView
+                android:id="@+id/textViewTVARecap"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="TVA récupérable: Non"
+                android:textColor="@android:color/white"
+                android:textSize="12sp"
+                android:layout_marginBottom="2dp" />
+
+            <TextView
+                android:id="@+id/textViewJustificatifRecap"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Justificatif fourni: Non"
+                android:textColor="@android:color/white"
+                android:textSize="12sp"
+                android:layout_marginBottom="8dp" />
+
+            <TextView
+                android:id="@+id/textViewDateCreation"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Créé le: --/--/----"
+                android:textColor="@android:color/white"
+                android:textSize="12sp"
+                android:visibility="gone" />
+
+        </LinearLayout>
+
+        <!-- Zone de validation par le manager -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Validation par le manager"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="16dp"
+            android:textColor="@color/section_title" />
+
+        <!-- Statut de validation -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Statut :"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="8dp" />
+
+        <RadioGroup
+            android:id="@+id/radioGroupStatut"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="16dp">
+
+            <RadioButton
+                android:id="@+id/radioBtnApprouve"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Approuvé"
+                android:minHeight="48dp" />
+
+            <RadioButton
+                android:id="@+id/radioBtnRefuse"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Refusé"
+                android:layout_marginStart="16dp"
+                android:minHeight="48dp" />
+
+            <RadioButton
+                android:id="@+id/radioBtnEnAttente"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="En attente"
+                android:layout_marginStart="16dp"
+                android:checked="true"
+                android:minHeight="48dp" />
+
+        </RadioGroup>
+
+        <!-- Commentaires du manager -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Commentaires :"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="8dp" />
+
+        <EditText
+            android:id="@+id/editTextCommentaires"
+            android:layout_width="match_parent"
+            android:layout_height="120dp"
+            android:hint="Commentaires du manager..."
+            android:inputType="textMultiLine|textCapSentences"
+            android:gravity="top"
+            android:layout_marginBottom="16dp" />
+
+        <!-- Remboursement prioritaire -->
+        <CheckBox
+            android:id="@+id/checkBoxPrioritaire"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Remboursement prioritaire"
+            android:layout_marginBottom="16dp"
+            android:minHeight="48dp" />
+
+        <!-- Délai de traitement -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Délai de traitement :"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="8dp" />
+
+        <Spinner
+            android:id="@+id/spinnerDelai"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="32dp"
+            android:minHeight="48dp" />
+
+        <!-- Boutons d'actions -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center">
+
+            <Button
+                android:id="@+id/btnValider"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Valider"
+                android:layout_marginEnd="8dp" />
+
+            <Button
+                android:id="@+id/btnModifier"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Modifier"
+                android:layout_marginEnd="8dp"
+                style="@style/Widget.Material3.Button.OutlinedButton" />
+
+            <Button
+                android:id="@+id/btnAnnuler"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Annuler"
+                style="@style/Widget.Material3.Button.OutlinedButton" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</ScrollView>

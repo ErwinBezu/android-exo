@@ -17,7 +17,6 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        // Initialisation du View Binding
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
@@ -36,7 +35,6 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun setupListeners() {
-        // TextWatchers pour validation temps réel
         binding.editTextNomEmploye.addTextChangedListener(object : TextWatcher {
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {}
@@ -57,7 +55,6 @@ class MainActivity : AppCompatActivity() {
             }
         })
 
-        // RadioGroup Département
         binding.radioGroupDepartement.setOnCheckedChangeListener { _, checkedId ->
             noteFrais.departement = when (checkedId) {
                 R.id.radioButtonCommercial -> "Commercial"
@@ -69,7 +66,6 @@ class MainActivity : AppCompatActivity() {
             updatePreview()
         }
 
-        // Spinner Type de frais
         binding.spinnerTypeFrais.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
             override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
                 noteFrais.typeFrais = parent?.getItemAtPosition(position).toString()
@@ -78,7 +74,6 @@ class MainActivity : AppCompatActivity() {
             override fun onNothingSelected(parent: AdapterView<*>?) {}
         }
 
-        // CheckBox Frais récurrent
         binding.checkBoxFraisRecurrent.setOnCheckedChangeListener { _, isChecked ->
             noteFrais.fraisRecurrent = isChecked
             if (isChecked) {
@@ -86,13 +81,11 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
-        // Switch TVA
         binding.switchTVA.setOnCheckedChangeListener { _, isChecked ->
             noteFrais.avecTVA = isChecked
             updatePreview()
         }
 
-        // SeekBar Montant
         binding.seekBarMontant.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {
             override fun onProgressChanged(seekBar: SeekBar?, progress: Int, fromUser: Boolean) {
                 noteFrais.montant = 10.0 + progress
@@ -103,7 +96,6 @@ class MainActivity : AppCompatActivity() {
             override fun onStopTrackingTouch(seekBar: SeekBar?) {}
         })
 
-        // RadioGroup Urgence
         binding.radioGroupUrgence.setOnCheckedChangeListener { _, checkedId ->
             noteFrais.urgence = when (checkedId) {
                 R.id.radioButtonNormal -> "Normal"
@@ -114,7 +106,6 @@ class MainActivity : AppCompatActivity() {
             updateTicketColor()
         }
 
-        // CheckBoxes
         binding.checkBoxJustificatif.setOnCheckedChangeListener { _, isChecked ->
             noteFrais.justificatifFourni = isChecked
         }
@@ -123,7 +114,6 @@ class MainActivity : AppCompatActivity() {
             noteFrais.validationManager = isChecked
         }
 
-        // Boutons avec View Binding - Plus besoin de findViewById !
         binding.buttonCalculer.setOnClickListener {
             calculerTotal()
         }
@@ -170,8 +160,8 @@ class MainActivity : AppCompatActivity() {
     private fun updateTicketColor() {
         val color = when (noteFrais.urgence) {
             "Normal" -> Color.WHITE
-            "Urgent" -> Color.parseColor("#FFF3CD") // Jaune clair
-            "Très urgent" -> Color.parseColor("#F8D7DA") // Rouge clair
+            "Urgent" -> Color.parseColor("#FFF3CD")
+            "Très urgent" -> Color.parseColor("#F8D7DA")
             else -> Color.WHITE
         }
         binding.layoutTicket.setBackgroundColor(color)
@@ -226,10 +216,5 @@ class MainActivity : AppCompatActivity() {
 
         updatePreview()
         Toast.makeText(this, "Formulaire réinitialisé", Toast.LENGTH_SHORT).show()
-    }
-
-    override fun onDestroy() {
-        super.onDestroy()
-        // View Binding se nettoie automatiquement, mais bonne pratique de le mentionner
     }
 }
