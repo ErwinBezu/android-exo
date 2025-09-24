@@ -1,0 +1,237 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp"
+    tools:context=".ValidationActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <!-- En-tête -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Validation Note de Frais"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:textColor="@color/primary_color"
+            android:layout_marginBottom="24dp"
+            android:gravity="center" />
+
+        <!-- Section récapitulatif -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Récapitulatif de la demande"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="16dp"
+            android:textColor="@color/section_title" />
+
+        <LinearLayout
+            android:id="@+id/layoutRecapitulatif"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp"
+            android:background="@drawable/recap_background"
+            android:layout_marginBottom="24dp">
+
+            <TextView
+                android:id="@+id/textViewRecapNom"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:textColor="@android:color/white"
+                android:layout_marginBottom="4dp" />
+
+            <TextView
+                android:id="@+id/textViewRecapNumero"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="14sp"
+                android:textColor="@android:color/white"
+                android:layout_marginBottom="4dp" />
+
+            <TextView
+                android:id="@+id/textViewRecapDepartement"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="14sp"
+                android:textColor="@android:color/white"
+                android:layout_marginBottom="4dp" />
+
+            <TextView
+                android:id="@+id/textViewRecapTypeFrais"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="14sp"
+                android:textColor="@android:color/white"
+                android:layout_marginBottom="8dp" />
+
+            <TextView
+                android:id="@+id/textViewRecapMontant"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:textColor="@android:color/white"
+                android:layout_marginBottom="4dp" />
+
+            <TextView
+                android:id="@+id/textViewRecapOptions"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="12sp"
+                android:textColor="@android:color/white" />
+
+        </LinearLayout>
+
+        <!-- Section validation manager -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Décision du manager"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="16dp"
+            android:textColor="@color/section_title" />
+
+        <!-- RadioGroup pour le statut -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Statut de validation :"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="8dp" />
+
+        <RadioGroup
+            android:id="@+id/radioGroupStatut"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="16dp">
+
+            <RadioButton
+                android:id="@+id/radioBtnApprouve"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Approuvé"
+                android:minHeight="48dp" />
+
+            <RadioButton
+                android:id="@+id/radioBtnRefuse"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Refusé"
+                android:layout_marginStart="16dp"
+                android:minHeight="48dp" />
+
+            <RadioButton
+                android:id="@+id/radioBtnEnAttente"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="En attente"
+                android:layout_marginStart="16dp"
+                android:checked="true"
+                android:minHeight="48dp" />
+
+        </RadioGroup>
+
+        <!-- Zone de commentaires -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Commentaires du manager :"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="8dp" />
+
+        <EditText
+            android:id="@+id/editTextCommentaires"
+            android:layout_width="match_parent"
+            android:layout_height="120dp"
+            android:hint="Commentaires du manager (obligatoire si refus)"
+            android:gravity="top|start"
+            android:inputType="textMultiLine"
+            android:background="@drawable/edittext_border"
+            android:padding="12dp"
+            android:layout_marginBottom="4dp" />
+
+        <TextView
+            android:id="@+id/textViewErreurCommentaires"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/error_color"
+            android:textSize="12sp"
+            android:visibility="gone"
+            android:layout_marginBottom="16dp" />
+
+        <!-- CheckBox remboursement prioritaire -->
+        <CheckBox
+            android:id="@+id/checkBoxPrioritaire"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Remboursement prioritaire"
+            android:layout_marginBottom="16dp"
+            android:minHeight="48dp" />
+
+        <!-- Spinner délai de traitement -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Délai de traitement prévu :"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="8dp" />
+
+        <Spinner
+            android:id="@+id/spinnerDelai"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="32dp"
+            android:minHeight="48dp" />
+
+        <!-- Boutons d'action -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center">
+
+            <Button
+                android:id="@+id/btnModifier"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Modifier"
+                android:layout_marginEnd="8dp"
+                style="@style/Widget.Material3.Button.OutlinedButton" />
+
+            <Button
+                android:id="@+id/btnValider"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Valider"
+                android:layout_marginEnd="8dp" />
+
+            <Button
+                android:id="@+id/btnAnnuler"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Annuler"
+                style="@style/Widget.Material3.Button.OutlinedButton" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</ScrollView>
